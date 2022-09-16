@@ -1,7 +1,7 @@
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
-import { AppLayout } from '@layouts'
 import { getMostViewedService, VideoSectionDiscover, VideoSectionMostViewed } from '@app/videos'
 import Video from '@app/videos/domain/Video'
+import { Fragment } from 'react'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const resMostViewed = await getMostViewedService()
@@ -20,10 +20,10 @@ const Home: NextPage = ({
   mostViewed
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <AppLayout>
+    <Fragment>
       <VideoSectionDiscover latestVideos={discover} className='mb-4' />
       <VideoSectionMostViewed mostViewed={mostViewed} className='mb-4' />
-    </AppLayout>
+    </Fragment>
   )
 }
 
