@@ -20,7 +20,7 @@ const CheckBoxLabel = styled.label`
     width: 20px;
     height: 20px;
     margin: 2px;
-    background: #ffffff;
+    background: ${({ theme }) => theme.colors.white};
     transition: 0.2s;
   }
 `

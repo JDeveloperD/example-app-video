@@ -1,5 +1,5 @@
 import { MEDIA_BREAKPOINTS } from '@styles/constants'
-import { ThemeColor } from '@styles/styled'
+import { Color } from '@styles/styled'
 import styled, { css } from 'styled-components'
 
 export type VariantTipography = 'display' | 'headline' | 'small' | 'lead' | 'default'
@@ -114,15 +114,23 @@ export type TypographyProp = {
   variant?: VariantTipography,
   size?: number,
   fontWeight?: FontWheightTipography,
-  color?: ThemeColor
+  color?: Color
 }
 
 const Typography = styled.p<TypographyProp>`
-  ${({ variant, size }) => getVariant(variant, size)}
-  font-weight: ${({ fontWeight }) => `${fontWeight} !important` ?? 400};
-  color: ${({ theme, color }) => color && theme.colors[color]};
+  font-weight: ${({ fontWeight }) => {
+    return fontWeight
+      ? `${fontWeight} !important`
+      : 400
+  }};
+  color: ${({ theme, color }) => {
+    return color
+      ? theme.colors[color]
+      : theme.colors.gray
+  }};
   margin-bottom: 0;
   text-decoration: none;
+  ${({ variant, size }) => getVariant(variant, size)}
 `
 
 export default Typography

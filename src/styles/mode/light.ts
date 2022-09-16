@@ -1,31 +1,34 @@
+import { COLORS } from '@styles/constants'
 import { DefaultTheme } from 'styled-components'
 
-const MODE_LIGHT: DefaultTheme = {
+const THEME_LIGHT: DefaultTheme = {
   mode: 'light',
   colors: {
-    primary: '#08A0F7',
+    primary: COLORS.blue,
     secondary: '#242730',
     accent: '',
 
     info: '',
-    warning: '',
+    warning: '#FF7551',
     danger: '#EC5252',
-    success: '',
+    success: '#22B07D',
 
-    light: '#FFFFFF',
+    white: '#FFF',
+    light: '#f8f8f8',
     gray: '#808191',
+    black: '#000',
 
-    textBody: '#B7B9D2',
-    link: '',
+    textBody: '#808191',
+    link: '#08A0F7',
 
-    backgroundBody: '#1F1D2B'
+    backgroundBody: '#FFF'
   },
   fonts: {
-    fontPrimary: '',
+    fontPrimary: 'Poppins',
     fontSecondary: ''
   },
   fontSizes: {
-    body: ''
+    body: '1rem'
   },
   shadows: {
     small: '',
@@ -33,4 +36,4 @@ const MODE_LIGHT: DefaultTheme = {
   }
 }
 
-export default MODE_LIGHT
+export default THEME_LIGHT

@@ -1,11 +1,11 @@
-import { ThemeColor } from '@styles/styled'
+import { Color } from '@styles/styled'
 import { FC, ReactNode } from 'react'
 import { Wrapper, Symbol } from './styled'
 
 export type BadgeProps = {
   children?: ReactNode,
-  color?: ThemeColor,
-  textColor?: ThemeColor,
+  color?: Color,
+  textColor?: Color,
   anchorOrigin?: {
     horizontal: 'left' | 'right',
     vertical: 'top' | 'bottom'

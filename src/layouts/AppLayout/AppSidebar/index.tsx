@@ -1,7 +1,8 @@
-import { Divider, Switch, Typography } from '@components'
+import { Divider } from '@components'
 import { SidebarWrapper, SidebarMenu } from './styled'
 import Menu from './Menu'
 import { menuItems, categoryItems } from './itemsOfSideBar'
+import { SwitchTheme } from '@styles'
 
 const AppSidebar = () => {
   return (
@@ -11,10 +12,7 @@ const AppSidebar = () => {
         <Divider className="my-4" />
         <Menu title="categorías" items={categoryItems} />
         <Divider className="my-4" />
-        <div className='d-flex align-items-center gap-4'>
-          <Switch defaultChecked={true} />
-          <Typography variant='small' color='gray'>Dark mode</Typography>
-        </div>
+        <SwitchTheme />
       </SidebarMenu>
     </SidebarWrapper>
   )

@@ -33,6 +33,7 @@ export default createGlobalStyle`
       color: ${theme.colors.textBody};
       font-family: ${theme.fonts.fontPrimary};
       font-size: ${theme.fontSizes.body};
+      transition: background 0.2s linear;
     }
 
     a {

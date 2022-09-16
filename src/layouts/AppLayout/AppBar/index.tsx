@@ -8,8 +8,11 @@ import {
 } from '@components'
 import { AccountInfo } from '@app/users'
 import { HeadWrapper } from './styled'
+import { useTheme } from 'styled-components'
 
 const AppBar = () => {
+  const { mode } = useTheme()
+
   return (
     <HeadWrapper>
       <Container>
@@ -18,7 +21,7 @@ const AppBar = () => {
             <Row className='justify-content-between align-items-center'>
               <Col xs={6} md={12}>
                 <Typography
-                  color="light"
+                  color={mode === 'light' ? 'primary' : 'light' }
                   variant="lead"
                   fontWeight={600}>skateboard
                 </Typography>

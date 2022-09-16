@@ -1,9 +1,9 @@
-import { ThemeColor } from '@styles/styled'
+import { Color } from '@styles/styled'
 import styled, { css } from 'styled-components'
 
 export type VariantBadge = 'dot' | 'default'
 
-const Wrapper = styled.div<{textColor?: ThemeColor}>`
+const Wrapper = styled.div<{textColor?: Color}>`
   position: relative;
   display: inline-flex;
   vertical-align: middle;
@@ -32,7 +32,7 @@ const getVariant = (variant: VariantBadge = 'default') => ({
 }[variant])
 
 const Symbol = styled.span<{
-  color?: ThemeColor,
+  color?: Color,
   variant?: VariantBadge
 }>`
   background: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.primary};

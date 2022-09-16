@@ -1,8 +1,20 @@
-const getLocalStorage = (key: string) => localStorage.getItem(key)
+const getLocalStorage = (key: string): any | undefined => {
+  const value = window.localStorage.getItem(key)
 
-const setLocalStorage = (key: string, value: any) => localStorage.setItem(key, JSON.stringify(value))
+  if (value) {
+    return JSON.parse(value)
+  }
 
-const removeLocalStorage = (key: string) => localStorage.removeItem(key)
+  return undefined
+}
+
+const setLocalStorage = (key: string, value: any) => {
+  window.localStorage.setItem(key, JSON.stringify(value))
+}
+
+const removeLocalStorage = (key: string) => {
+  window.localStorage.removeItem(key)
+}
 
 export {
   getLocalStorage,

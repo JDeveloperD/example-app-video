@@ -1,9 +1,10 @@
+import { COLORS } from '@styles/constants'
 import { DefaultTheme } from 'styled-components'
 
-const MODE_DARK: DefaultTheme = {
+const THEME_DARK: DefaultTheme = {
   mode: 'dark',
   colors: {
-    primary: '#08A0F7',
+    primary: COLORS.blue,
     secondary: '#242730',
     accent: '',
 
@@ -12,8 +13,10 @@ const MODE_DARK: DefaultTheme = {
     danger: '#EC5252',
     success: '#22B07D',
 
+    white: '#FFF',
     light: '#FFFFFF',
     gray: '#808191',
+    black: '#242730',
 
     textBody: '#B7B9D2',
     link: '#08A0F7',
@@ -33,4 +36,4 @@ const MODE_DARK: DefaultTheme = {
   }
 }
 
-export default MODE_DARK
+export default THEME_DARK

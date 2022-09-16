@@ -5,9 +5,8 @@ const Icon = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.7rem;
-  border-radius: 1rem;
-  background-color: rgba(0,0,0,0.25);
+  padding: 0.5rem;
+  border-radius: 0.75rem;
   font-size: 1.2rem;
 `
 
@@ -15,18 +14,32 @@ const Button = styled.a<{ active?:boolean }>`
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   color: ${({ theme }) => theme.colors.gray};
+
+  &:hover {
+    color: ${({ theme }) => {
+      return theme.mode === 'light'
+        ? theme.colors.primary
+        : theme.colors.light
+      }
+    };
+  }
 
   ${({ active, theme }) => active && css`
 
     ${Typography} {
+      color: ${({ theme }) => {
+        return theme.mode === 'light'
+          ? theme.colors.primary
+          : theme.colors.light
+        }
+      };
       font-weight: 600;
-      color: white;
     }
 
     ${Icon} {
-      color: white;
+      color: ${({ theme }) => theme.colors.light};
       background: ${theme.colors.primary};
     }
   `}

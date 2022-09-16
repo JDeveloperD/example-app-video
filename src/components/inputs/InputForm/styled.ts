@@ -1,4 +1,3 @@
-import { rgba } from 'polished'
 import styled from 'styled-components'
 
 const Form = styled.form`
@@ -10,10 +9,18 @@ const Input = styled.input`
   width: 100%;
   background: transparent;
   border-style: none;
-  background: ${rgba(64, 72, 82, 0.5)};
+  background: ${({ theme }) => {
+    return theme.mode === 'light'
+    ? theme.colors.light
+    : theme.colors.black
+  }};
   padding: 12px 1rem;
   border-radius: 10px;
-  color: white;
+  color: ${({ theme }) => theme.colors.textBody};
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.textBody};
+  }
 
   &[type="search"] {
     &:not(:placeholder-shown) + button {
@@ -32,7 +39,7 @@ const Button = styled.button.attrs({
   padding: 0.5rem 1rem;
   border-style: none;
   background: transparent;
-  color: #808191;
+  color: ${({ theme }) => theme.colors.textBody};
 `
 
 export {

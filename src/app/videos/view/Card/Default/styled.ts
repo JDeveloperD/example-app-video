@@ -2,7 +2,11 @@ import styled from 'styled-components'
 import { rgba } from 'polished'
 
 const Wrapper = styled.article`
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }) => {
+    return theme.mode === 'light'
+    ? theme.colors.light
+    : theme.colors.black
+  }};
   border-radius: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -17,6 +21,10 @@ const Thumbnail = styled.figure`
 const Info = styled.div`
   padding: 1.75rem 1.5rem 1.5rem 1.5rem;
   position: relative;
+
+  a:hover {
+    color: ${({ theme }) => theme.mode === 'dark' && theme.colors.light};
+  }
 `
 
 const Time = styled.time`

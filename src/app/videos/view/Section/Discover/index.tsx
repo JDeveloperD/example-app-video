@@ -2,6 +2,7 @@ import { Typography } from '@components'
 import { Col, Row } from 'react-bootstrap'
 import { VideoCardHorizontail } from '@app/videos'
 import { HTMLAttributes } from 'react'
+import { useTheme } from 'styled-components'
 
 type VideoSectionDiscoverProps = HTMLAttributes<HTMLElement> & {
   latestVideos: []
@@ -11,14 +12,16 @@ const VideoSectionDiscover = ({
   latestVideos = [],
   ...props
 }: VideoSectionDiscoverProps) => {
+  const { mode } = useTheme()
+
   return (
     <section {...props}>
       <Typography
-        color='light'
         variant='display'
-        as='h3'
         fontWeight={500}
         size={6}
+        as='h3'
+        color={mode === 'dark' ? 'light' : undefined}
         className='mb-3'
       >
         Descubrir

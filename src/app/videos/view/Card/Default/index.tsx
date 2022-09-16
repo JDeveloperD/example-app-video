@@ -1,6 +1,7 @@
 import { Avatar, Typography } from '@components'
 import Image from 'next/image'
 import { FC } from 'react'
+import { useTheme } from 'styled-components'
 import { Info, Wrapper, Time, Thumbnail, Author } from './styled'
 
 export type VideoCardDefaultProps = {
@@ -16,6 +17,8 @@ const PostCardDefault: FC<VideoCardDefaultProps> = ({
   time,
   thumbnail
 }) => {
+  const { mode } = useTheme()
+
   return (
     <Wrapper>
       <Thumbnail>
@@ -30,9 +33,25 @@ const PostCardDefault: FC<VideoCardDefaultProps> = ({
         <Author>
           <Avatar verified />
         </Author>
-        <Typography className="mb-3" variant="small">{authorName}</Typography>
-        <Typography as='a' className="d-block mb-3" fontWeight={'bold'} color="light">{title}</Typography>
-        <Typography variant="small">53K vistas  •  hace 2 semanas</Typography>
+        <Typography
+          className="mb-3"
+          variant="small"
+        >
+          {authorName}
+        </Typography>
+        <Typography
+          as='a'
+          className="d-block mb-3"
+          fontWeight={600}
+          color={mode === 'light' ? 'textBody' : 'light'}
+        >
+          {title}
+        </Typography>
+        <Typography
+          variant="small"
+        >
+          53K vistas  •  hace 2 semanas
+        </Typography>
       </Info>
     </Wrapper>
   )

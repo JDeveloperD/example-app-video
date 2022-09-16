@@ -5,6 +5,7 @@ import carouselBreakpoints from './carouselBreakpoints'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import { SectionWrapper, LoaderSection } from './styled'
 import Video from '@app/videos/domain/Video'
+import { useTheme } from 'styled-components'
 
 type VideoSectionMostViewedProps = HTMLAttributes<HTMLElement> & {
   mostViewed: Video[]
@@ -14,6 +15,7 @@ const VideoSectionMostViewed = ({
   mostViewed = [],
   ...props
 }: VideoSectionMostViewedProps) => {
+  const { mode } = useTheme()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -23,11 +25,11 @@ const VideoSectionMostViewed = ({
   return (
     <SectionWrapper {...props}>
       <Typography
-        color='light'
         variant='headline'
-        as='h3'
         fontWeight={300}
+        as='h3'
         size={3}
+        color={mode === 'dark' ? 'light' : undefined}
         className='mb-3'
       >
         Más Vistos

@@ -23,6 +23,7 @@ const Carousel: FC<CarouselProps> = ({
   items,
   render,
   className,
+  pagination,
   ...props
 }) => {
   const [swiperRef, setSwiperRef] = useState<any>(null)
@@ -32,7 +33,7 @@ const Carousel: FC<CarouselProps> = ({
   }
 
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} pagination={!!pagination}>
       <Swiper
         modules={[
           Pagination,
@@ -40,6 +41,7 @@ const Carousel: FC<CarouselProps> = ({
           Autoplay,
           FreeMode
         ]}
+        pagination={pagination}
         onSwiper={(swiper) => setSwiperRef(swiper)}
         {...props}
       >
