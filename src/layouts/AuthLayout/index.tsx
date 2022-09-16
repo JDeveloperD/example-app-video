@@ -1,13 +1,22 @@
 import { FC, ReactNode } from 'react'
-// import { Col, Container, Row } from '@components'
+import {
+  AuthWrapper,
+  LeftSection,
+  RightSection
+} from './styled'
 
 const AuthLayout: FC<{
   children: ReactNode
 }> = ({ children }) => {
   return (
-    <>
-      {children}
-    </>
+    <AuthWrapper>
+      <LeftSection>
+        <div>{children}</div>
+      </LeftSection>
+      <RightSection>
+
+      </RightSection>
+    </AuthWrapper>
   )
 }
 

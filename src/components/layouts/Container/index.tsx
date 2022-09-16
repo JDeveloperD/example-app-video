@@ -2,12 +2,13 @@ import { ReactNode } from 'react'
 import { Container as BsContainer } from 'react-bootstrap'
 
 type ContainerProps = {
-  children: ReactNode
+  children: ReactNode,
+  fluid?: 'md' | 'lg' | 'xl' | 'xxl'
 }
 
-const Container = ({ children, ...props }: ContainerProps) => {
+const Container = ({ children, fluid, ...props }: ContainerProps) => {
   return (
-    <BsContainer fluid="xxl" {...props}>
+    <BsContainer fluid={fluid ?? 'xxl'} {...props}>
       {children}
     </BsContainer>
   )
