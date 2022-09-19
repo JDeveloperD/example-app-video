@@ -1,11 +1,13 @@
+import { Video } from '@app/videos/core/domain'
+import { providerVideoPloc } from '@app/videos/core/videoDependencies'
+import { VideoCardDefault } from '@app/videos/view'
+import { HTMLAttributes, useEffect } from 'react'
+import { usePlocState } from '@hooks'
+import { useTheme } from 'styled-components'
+import { SectionWrapper, LoaderSection } from './styled'
 import { Carousel, Spinner, Typography } from '@components'
-import { VideoCardDefault } from '@app/videos'
 import { SwiperSlide } from 'swiper/react'
 import carouselBreakpoints from './carouselBreakpoints'
-import { HTMLAttributes, useEffect, useState } from 'react'
-import { SectionWrapper, LoaderSection } from './styled'
-import Video from '@app/videos/domain/Video'
-import { useTheme } from 'styled-components'
 
 type VideoSectionMostViewedProps = HTMLAttributes<HTMLElement> & {
   mostViewed: Video[]
@@ -16,11 +18,16 @@ const VideoSectionMostViewed = ({
   ...props
 }: VideoSectionMostViewedProps) => {
   const { mode } = useTheme()
-  const [isLoading, setIsLoading] = useState(false)
+  const ploc = providerVideoPloc()
+  const state = usePlocState(ploc)
 
   useEffect(() => {
-    setIsLoading(false)
-  }, [])
+    const allVideos = async () => {
+      ploc.getAll()
+    }
+
+    allVideos()
+  }, [ploc])
 
   return (
     <SectionWrapper {...props}>
@@ -35,26 +42,29 @@ const VideoSectionMostViewed = ({
         Más Vistos
       </Typography>
 
-      {isLoading && (
+      {state.kind === 'LoadingVideosState' && (
         <LoaderSection>
-          <Spinner />
+          <Spinner color='textBody' />
         </LoaderSection>
       )}
 
-      {!isLoading && mostViewed.length > 0 && (
+      {state.kind === 'LoadedVideosState' && state.videos.length > 0 && (
         <Carousel
-          items={mostViewed}
+          autoplay
+          items={state.videos}
           spaceBetween={10}
           slidesPerView={1.2}
-          autoplay
           allowTouchMove={false}
-          pagination={{
-            clickable: true
-          }}
+          pagination={{ clickable: true }}
           breakpoints={carouselBreakpoints}
-          render={(video: any) => (
+          render={(video: Video) => (
             <SwiperSlide key={video.id}>
-              <VideoCardDefault {...video} />
+              <VideoCardDefault
+                title={video.title}
+                authorName={video.user.name}
+                time={video.time.toString()}
+                thumbnail={video.thumbnail}
+              />
             </SwiperSlide>
           )}
         />

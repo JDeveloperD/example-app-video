@@ -4,9 +4,12 @@ import Menu from './Menu'
 import { menuItems, categoryItems } from './itemsOfSideBar'
 import { SwitchTheme } from '@styles'
 
-const AppSidebar = () => {
+type AppSidebarProps = {
+  toggleSidebar: boolean
+}
+const AppSidebar = ({ toggleSidebar }: AppSidebarProps) => {
   return (
-    <SidebarWrapper>
+    <SidebarWrapper show={toggleSidebar}>
       <SidebarMenu>
         <Menu title="menú" items={menuItems} />
         <Divider className="my-4" />

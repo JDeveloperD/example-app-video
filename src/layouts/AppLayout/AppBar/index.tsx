@@ -3,14 +3,20 @@ import {
   InputForm,
   FiSearch,
   Container,
+  FaBars,
   Row,
-  Col
+  Col,
+  Button
 } from '@components'
 import { AccountInfo } from '@app/users'
 import { HeadWrapper } from './styled'
 import { useTheme } from 'styled-components'
 
-const AppBar = () => {
+type AppBarProps = {
+  onClickButtonSidebar: () => void
+}
+
+const AppBar = ({ onClickButtonSidebar }: AppBarProps) => {
   const { mode } = useTheme()
 
   return (
@@ -32,12 +38,24 @@ const AppBar = () => {
             </Row>
           </Col>
           <Col xs={12} md={6} xl={7}>
-            <InputForm
-              inputType='text'
-              onSubmit={() => console.log('SUMIT')}
-              placeholder='Buscar'
-              iconButton={<FiSearch/>}
-            />
+            <Row className='align-items-center'>
+              <Col xs={2} lg={1}>
+                <Button
+                  variant='icon'
+                  color={mode === 'light' ? 'primary' : 'light' }
+                  onClick={onClickButtonSidebar}>
+                  <FaBars />
+                </Button>
+              </Col>
+              <Col>
+                <InputForm
+                  inputType='text'
+                  onSubmit={() => console.log('SUMIT')}
+                  placeholder='Buscar'
+                  iconButton={<FiSearch/>}
+                />
+              </Col>
+            </Row>
           </Col>
           <Col className='d-none d-md-block text-end'>
             <AccountInfo />

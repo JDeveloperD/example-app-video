@@ -1,8 +1,7 @@
-import { Typography } from '@components'
-import { Col, Row } from 'react-bootstrap'
-import { VideoCardHorizontail } from '@app/videos'
+import { Col, Row, Typography } from '@components'
 import { HTMLAttributes } from 'react'
 import { useTheme } from 'styled-components'
+import { VideoCardHorizontail } from '../../Card'
 
 type VideoSectionDiscoverProps = HTMLAttributes<HTMLElement> & {
   latestVideos: []
@@ -24,7 +23,7 @@ const VideoSectionDiscover = ({
         color={mode === 'dark' ? 'light' : undefined}
         className='mb-3'
       >
-        Descubrir
+      Descubrir
       </Typography>
       <Row className="g-3">
         <Col lg={8}>

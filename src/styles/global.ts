@@ -62,4 +62,8 @@ export default createGlobalStyle`
       margin: 0;
     }
   `}
+
+  .w-0 {
+    width: 0 !important;
+  }
 `

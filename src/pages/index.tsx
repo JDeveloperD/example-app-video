@@ -1,16 +1,14 @@
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
-import { getMostViewedService, VideoSectionDiscover, VideoSectionMostViewed } from '@app/videos'
-import Video from '@app/videos/domain/Video'
+import type {
+  GetServerSideProps, InferGetServerSidePropsType, NextPage
+} from 'next'
+import { VideoSectionDiscover, VideoSectionMostViewed } from '@app/videos/view'
 import { Fragment } from 'react'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const resMostViewed = await getMostViewedService()
-  const mostViewedVideos: Video[] = resMostViewed.data.videos
-
   return {
     props: {
       discover: [],
-      mostViewed: mostViewedVideos
+      mostViewed: []
     }
   }
 }

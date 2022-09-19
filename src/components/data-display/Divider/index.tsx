@@ -1,3 +1,4 @@
+import { darken } from 'polished'
 import styled from 'styled-components'
 
 const Divider = styled.div`
@@ -5,7 +6,7 @@ const Divider = styled.div`
   height: 1px;
   background-color: ${({ theme }) => {
     return theme.mode === 'light'
-      ? theme.colors.gray
+      ? darken(0.1, theme.colors.light)
       : theme.colors.gray
   }};
 `

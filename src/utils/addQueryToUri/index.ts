@@ -1,5 +1,4 @@
-
-const addQueryToUri = (
+export const addQueryToUri = (
   { uri, query }: {uri: string, query: any}
 ) => {
   let str = ''
@@ -23,5 +22,3 @@ const addQueryToUri = (
 
   return uri + str
 }
-
-export default addQueryToUri
