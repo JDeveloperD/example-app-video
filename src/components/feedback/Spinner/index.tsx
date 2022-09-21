@@ -1,9 +1,15 @@
-import { Color } from '@styles/styled'
+import { Color, ThemeSize } from '@styles/styled'
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const Spinner = ({ color }: {color: Color}) => (
-  <StyledSpinner viewBox="0 0 50 50" color={color}>
+type SpinnerProps = {
+  color?: Color,
+  size?: ThemeSize
+  className?: string
+}
+
+const Spinner = ({ color, size, ...props }: SpinnerProps) => (
+  <StyledSpinner viewBox="0 0 50 50" color={color} size={size} {...props}>
     <circle
       className="path"
       cx="25"
@@ -15,13 +21,22 @@ const Spinner = ({ color }: {color: Color}) => (
   </StyledSpinner>
 )
 
-const StyledSpinner = styled.svg<{
-  color?: Color
-}>`
+const StyledSpinner = styled.svg<SpinnerProps>`
   animation: rotate 2s linear infinite;
-  margin: -25px 0 0 -25px;
-  width: 50px;
-  height: 50px;
+  ${({ size }) => {
+    switch (size) {
+      case 'sm':
+        return css`
+          width: 20px;
+          height: 20px;
+        `
+      default:
+        return css`
+          width: 40px;
+          height: 40px;
+        `
+    }
+  }}
   
   & .path {
     stroke: ${({ theme, color }) => {

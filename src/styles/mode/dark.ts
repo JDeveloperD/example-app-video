@@ -1,4 +1,4 @@
-import { COLORS } from '@styles/constants'
+import { BLUE_SCALE, COLORS } from '@styles/constants'
 import { DefaultTheme } from 'styled-components'
 
 const THEME_DARK: DefaultTheme = {
@@ -8,7 +8,7 @@ const THEME_DARK: DefaultTheme = {
     secondary: '#242730',
     accent: '',
 
-    info: '',
+    info: BLUE_SCALE[400],
     warning: '#FF7551',
     danger: '#EC5252',
     success: '#22B07D',
