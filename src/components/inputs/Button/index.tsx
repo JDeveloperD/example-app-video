@@ -34,10 +34,7 @@ const variantStyles = (
         color: white;
       }
 
-      &:disabled {
-        background: ${GRAY_SCALE[500]};
-        border-color: ${GRAY_SCALE[500]};
-      }
+      &:disabled {}
     `,
     outlined: css`
       border-color: ${theme.colors[color]};
