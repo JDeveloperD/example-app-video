@@ -11,6 +11,7 @@ const SidebarWrapper = styled.aside<{ show: boolean }>`
     transition: max-height 0.75s cubic-bezier(0.24, 0.67, 0.81, 1.06);
     will-change: unset;
     max-height: 100vh;
+    overflow-y: scroll;
   `}
 
   ${MEDIA_BREAKPOINTS.tablet} {

@@ -11,8 +11,8 @@ const AuthLayout: FC<{
 
   return (
     <AuthWrapper>
-      <Container>
-        <AuthHeader>
+      <AuthHeader>
+        <Container>
           <Row>
             <Col>
               <Typography
@@ -25,7 +25,9 @@ const AuthLayout: FC<{
               <SwitchTheme />
             </Col>
           </Row>
-        </AuthHeader>
+        </Container>
+      </AuthHeader>
+      <Container>
         <AuthContent>
           {children}
         </AuthContent>
