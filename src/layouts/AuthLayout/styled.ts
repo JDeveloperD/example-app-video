@@ -1,40 +1,33 @@
-import { CONTAINER_MAX_WIDTHS, MEDIA_BREAKPOINTS } from '@styles/constants'
 import styled from 'styled-components'
 
 const AuthWrapper = styled.div`
+  background-image: url('/img/register_bg_2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  min-height: 100vh;
+`
+
+const AuthHeader = styled.header`
+  padding: 1rem 0;
+`
+
+const AuthFooter = styled.footer`
+  width: 100%;
+  padding: 1rem 0;
+`
+
+const AuthContent = styled.main`
+  width: 100%;
+  min-height: calc(100vh - 180px);
   display: flex;
   flex-direction: column;
-  width: 100%;
-
-  & > * {
-    width: 100%;
-    min-height: 100vh;
-  }
-
-  ${MEDIA_BREAKPOINTS.laptop} {
-    flex-direction: row;
-  }
-`
-const LeftSection = styled.div`
-  & > div {
-    max-width: ${CONTAINER_MAX_WIDTHS.sm};
-    margin: 0 auto;
-  }
-`
-
-const RightSection = styled.div`
-  display: none;
-  background: ${({ theme }) => theme.colors.primary};
-  position: relative;
-  width: 100%;
-
-  ${MEDIA_BREAKPOINTS.laptop} {
-    display: block;
-  }
+  justify-content: center;
 `
 
 export {
+  AuthHeader,
   AuthWrapper,
-  LeftSection,
-  RightSection
+  AuthFooter,
+  AuthContent
 }
