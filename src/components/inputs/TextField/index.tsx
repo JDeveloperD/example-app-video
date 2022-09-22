@@ -10,7 +10,7 @@ type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   helperText?: string
 }
 
-const TextField: FC<TextFieldProps> = forwardRef(
+const TextField: FC<TextFieldProps> = forwardRef<HTMLInputElement, TextFieldProps>(
   function TextField ({
     icon,
     className,
