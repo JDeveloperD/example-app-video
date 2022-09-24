@@ -31,7 +31,7 @@ const Badge:FC<BadgeProps> = ({
         variant={variant}
         color={color}
       >
-          {badgeContent}
+        {badgeContent}
       </Symbol >
     </Wrapper>
   )

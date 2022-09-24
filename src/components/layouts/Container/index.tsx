@@ -8,7 +8,7 @@ type ContainerProps = {
 
 const Container = ({ children, fluid, ...props }: ContainerProps) => {
   return (
-    <BsContainer fluid={fluid ?? 'xxl'} {...props}>
+    <BsContainer fluid={fluid ?? true} {...props}>
       {children}
     </BsContainer>
   )
