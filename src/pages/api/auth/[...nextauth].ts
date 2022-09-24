@@ -1,3 +1,5 @@
+import Auth from '@app/auth/core/domain/Auth'
+import { User } from '@app/users'
 import { AxiosHttpClient } from '@common'
 import { NextAuthOptions } from 'next-auth'
 import NextAuth from 'next-auth/next'
@@ -25,7 +27,7 @@ export const optionsNextAuth: NextAuthOptions = {
       async authorize(credentials, req) {
         const { email, password } = credentials as { email: string, password: string}
 
-        const res = await http.request<{ user: { id: string}}>({
+        const { status, data } = await http.request<Auth>({
           url: 'http://localhost:3000/api/auth/sign-in',
           method: 'POST',
           body: {
@@ -34,15 +36,15 @@ export const optionsNextAuth: NextAuthOptions = {
           }
         })
 
-        if (res.data && res.data.user) {
+        if (data && data.user) {
           return {
-            name: 'ABC',
+            name: data.user.nickname,
             email,
-            image: 'imagen'
+            image: data.user.avatar
           }
         }
 
-        if (res.status === 400) {
+        if (status === 400) {
           throw new Error('Revice las credenciales nuevamente por favor')
         }
 

@@ -5,6 +5,7 @@ export default [
     password: '123456',
     firstName: 'James David',
     lastName: 'Sandoval Bartra',
+    nickname: 'JDeveloperD',
     age: 29,
     city: {
       id: 'city-uuid-1',
@@ -14,8 +15,8 @@ export default [
         name: 'United States'
       }
     },
-    postalCode: 321545,
-    aboutMe: {},
+    postalCode: '321545',
+    aboutMe: [''],
     avatar: 'https://i.pravatar.cc/150?img=2'
   },
   {
@@ -24,6 +25,7 @@ export default [
     password: '123456',
     firstName: 'Joselyn',
     lastName: 'Uriol Tantalean',
+    nickname: 'UriolAdmin',
     age: 29,
     city: {
       id: 'city-uuid-1',
@@ -33,8 +35,8 @@ export default [
         name: 'United States'
       }
     },
-    postalCode: 321545,
-    aboutMe: {},
+    postalCode: '321545',
+    aboutMe: [''],
     avatar: 'https://i.pravatar.cc/150?img=1'
   }
 ]

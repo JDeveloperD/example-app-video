@@ -8,9 +8,9 @@ import {
   Col,
   Button
 } from '@components'
-import { AccountInfo } from '@app/users'
 import { HeadWrapper } from './styled'
 import { useTheme } from 'styled-components'
+import { AuthAccountInfo } from '@app/auth/view'
 
 type AppBarProps = {
   onClickButtonSidebar: () => void
@@ -25,15 +25,15 @@ const AppBar = ({ onClickButtonSidebar }: AppBarProps) => {
         <Row className="align-items-center g-3">
           <Col xs={12} md={3} xl={2}>
             <Row className='justify-content-between align-items-center'>
-              <Col xs={6} md={12}>
+              <Col xs={4} md={12}>
                 <Typography
                   color={mode === 'light' ? 'primary' : 'light' }
                   variant="lead"
                   fontWeight={600}>skateboard
                 </Typography>
               </Col>
-              <Col xs={6} className='text-end d-md-none'>
-                <AccountInfo />
+              <Col xs={8} className='text-end d-md-none'>
+                <AuthAccountInfo />
               </Col>
             </Row>
           </Col>
@@ -58,7 +58,7 @@ const AppBar = ({ onClickButtonSidebar }: AppBarProps) => {
             </Row>
           </Col>
           <Col className='d-none d-md-block text-end'>
-            <AccountInfo />
+            <AuthAccountInfo />
           </Col>
         </Row>
       </Container>

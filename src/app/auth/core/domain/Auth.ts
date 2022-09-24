@@ -1,3 +1,6 @@
+import { User } from '@app/users'
+
 export default interface Auth {
-  accessToken?: string
+  user: Pick<User, 'nickname' | 'avatar' |'email'>
+  accessToken: string
 }

@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import users from '@database/users'
+import { User } from '@app/users'
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -13,7 +14,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     const { email, password } = req.body
 
     setTimeout(() => {
-      const userFound = users.find(u => {
+      const userFound: User | undefined = users.find(u => {
         if (u.email === email && u.password === password) {
           return u
         }
