@@ -44,7 +44,7 @@ const SignInPage: NextPageWithLayout = () => {
           <AuthFormSignIn />
         </div>
       </Card>
-      <div className="w-100 px-3">
+      <div className="w-100 px-3 p3-5">
         <Row>
           <Col xs={7}>
             <Typography

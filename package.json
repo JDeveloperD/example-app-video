@@ -10,17 +10,22 @@
     "test": "jest"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "framer-motion": "^7.3.5",
     "next": "12.2.5",
+    "next-auth": "^4.10.3",
     "polished": "^4.2.2",
     "react": "18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.36.0",
     "react-icons": "^4.4.0",
     "styled-components": "^5.3.5",
-    "swiper": "^8.4.0"
+    "swiper": "^8.4.0",
+    "use-react-form": "^0.0.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

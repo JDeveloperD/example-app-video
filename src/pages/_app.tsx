@@ -4,6 +4,7 @@ import { ThemeProvider } from '@styles'
 import { FC, ReactNode } from 'react'
 import { NextPage } from 'next'
 import { AppLayout } from '@layouts'
+import { SessionProvider } from 'next-auth/react'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   layout?: FC<{ children: ReactNode }>
@@ -18,9 +19,11 @@ const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
 
   return (
     <ThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <SessionProvider session={pageProps.session}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </SessionProvider>
     </ThemeProvider>
   )
 }

@@ -1,5 +1,6 @@
-import { darken } from 'polished'
+import { darken, lighten } from 'polished'
 import { createGlobalStyle, css } from 'styled-components'
+import { GRAY_SCALE } from './constants'
 
 export default createGlobalStyle`
   * {
@@ -65,5 +66,20 @@ export default createGlobalStyle`
 
   .w-0 {
     width: 0 !important;
+  }
+
+  ::-webkit-scrollbar {
+    background: transparent;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    /* background: ${({ theme }) => lighten(0.065, theme.colors.light)}; */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${GRAY_SCALE[200]};
+    border-radius: 0.5rem;
   }
 `

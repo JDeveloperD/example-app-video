@@ -1,7 +1,7 @@
 import { Typography } from '@components/data-display'
-import { FC, InputHTMLAttributes, ReactNode } from 'react'
 import Input from '../Input'
 import { WrapperField, WrapperIcon, WrapperInput } from './styled'
+import React, { FC, forwardRef, InputHTMLAttributes, ReactNode } from 'react'
 
 type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   icon: ReactNode
@@ -10,29 +10,32 @@ type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   helperText?: string
 }
 
-const TextField: FC<TextFieldProps> = ({
-  icon,
-  className,
-  error,
-  helperText,
-  ...props
-}) => {
-  return (
-    <WrapperField className={className}>
-      <WrapperInput>
-        <WrapperIcon>
-          {icon}
-        </WrapperIcon>
-        <Input {...props} invalid={error} />
-      </WrapperInput>
+const TextField: FC<TextFieldProps> = forwardRef<HTMLInputElement, TextFieldProps>(
+  function TextField ({
+    icon,
+    className,
+    error,
+    helperText,
+    ...props
+  }: TextFieldProps, ref) {
+    return (
+      <WrapperField className={className}>
+       <WrapperInput>
+         <WrapperIcon>
+           {icon}
+         </WrapperIcon>
+         <Input {...props} invalid={error} ref={ref} />
+       </WrapperInput>
+
       {helperText && error && (
         <Typography
           className='mt-2 ps-3'
           color='danger'
           variant='small'>{helperText}</Typography>
       )}
-    </WrapperField>
-  )
-}
+      </WrapperField>
+    )
+  }
+)
 
 export default TextField
