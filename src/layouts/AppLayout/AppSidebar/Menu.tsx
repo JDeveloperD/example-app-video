@@ -1,4 +1,4 @@
-import { List, Typography } from '@components'
+import { Badge, List, Typography } from '@components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
@@ -31,6 +31,9 @@ const Menu: FC<MenuProps> = ({ items, title }) => {
                 <Typography variant='small'>
                   {item.name}
                 </Typography>
+                {item.badge && (
+                  <Badge variant='dot' color={item.badge} />
+                )}
               </List.Button>
             </Link>
           </List.Item>

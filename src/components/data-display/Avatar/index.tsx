@@ -13,7 +13,7 @@ const Avatar: FC<AvatarProps> = ({ src, size, verified }) => {
   return (
     <Wrapper size={size}>
       <Image
-        src={src ?? '/img/avatar/avatar1.png'}
+        src={src || '/img/avatar/avatar1.png'}
         alt=""
         layout="fill"
         objectFit='cover'
