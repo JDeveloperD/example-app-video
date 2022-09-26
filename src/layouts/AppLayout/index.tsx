@@ -3,6 +3,17 @@ import { Col, Container, Row } from '@components'
 import AppBar from './AppBar'
 import AppSidebar from './AppSidebar'
 import { useToggle } from '@hooks'
+import styled from 'styled-components'
+import { MEDIA_BREAKPOINTS } from '@styles/constants'
+
+const Main = styled.main`
+  height: calc(100vh - 145px);
+  overflow-y: scroll;
+
+  ${MEDIA_BREAKPOINTS.tablet} {
+    height: calc(100vh - 90px);
+  }
+`
 
 const AppLayout: FC<{
   children: ReactNode
@@ -11,7 +22,7 @@ const AppLayout: FC<{
   return (
     <>
       <AppBar onClickButtonSidebar={toggleOpensidebar} />
-      <main>
+      <Main>
         <Container>
           <Row>
             <Col
@@ -29,7 +40,7 @@ const AppLayout: FC<{
             </Col>
           </Row>
         </Container>
-      </main>
+      </Main>
     </>
   )
 }

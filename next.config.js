@@ -8,7 +8,8 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
-      'i.pravatar.cc'
+      'i.pravatar.cc',
+      'cdn.pixabay.com'
     ]
   }
 }

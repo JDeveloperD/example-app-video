@@ -1,24 +1,26 @@
 import { RESET_UL } from '@styles/mixins'
-import { darken, lighten } from 'polished'
+import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
 
 const List = styled.ul`
   ${RESET_UL}
-  height: 100vh;
+  height: calc(100% - 64px);
   overflow-y: scroll;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding: 0.5rem 4px;
+  border-radius: 1rem;
   background-color: ${({ theme }) => {
     return theme.mode === 'dark'
-      ? lighten(0.04, theme.colors.secondary)
-      : lighten(0.45, theme.colors.gray)
+      ? theme.colors.secondary
+      : theme.colors.light
   }};
 `
 
 const Item = styled.li`
 `
 
-const ChatItemWraper = styled.button`
+const ChatItemWraper = styled.button<{
+  active: boolean
+}>`
   display: flex;
   width: 100%;
   gap: 10px;
@@ -48,15 +50,25 @@ const ChatItemWraper = styled.button`
 
   &:hover {
     background: ${({ theme }) => {
-      return theme.mode === 'light'
-      ? theme.colors.light
-      : theme.colors.secondary
+      return theme.mode === 'dark'
+      ? lighten(0.04, theme.colors.secondary)
+      : lighten(0.45, theme.colors.primary)
     }};
 
     &::before {
       opacity: 1;
     }
   }
+
+  ${({ active, theme }) => active && css`
+    background: ${theme.mode === 'dark'
+    ? lighten(0.1, theme.colors.secondary)
+    : lighten(0.4, theme.colors.primary)};
+
+    &::before {
+      opacity: 1;
+    }
+  `}
 `
 
 const ChatItemPhoto = styled.div<{
@@ -109,7 +121,18 @@ const ChatItemHeadDetail = styled.div`
   }
 `
 
-const ChatItemBody = styled.div``
+const ChatItemBody = styled.div`
+  overflow: hidden;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+`
+
+const CheckValidation = styled.div<{
+  isCheck: boolean
+}>`
+  color: ${({ isCheck, theme }) => isCheck ? theme.colors.primary : theme.colors.gray};
+`
 
 export {
   List,
@@ -118,5 +141,6 @@ export {
   ChatItemPhoto,
   ChatInfo,
   ChatItemHeadDetail,
-  ChatItemBody
+  ChatItemBody,
+  CheckValidation
 }

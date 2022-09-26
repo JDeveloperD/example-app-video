@@ -51,7 +51,7 @@ const AppBar = ({ onClickButtonSidebar }: AppBarProps) => {
                 <InputForm
                   inputType='text'
                   onSubmit={() => console.log('SUMIT')}
-                  placeholder='Buscar'
+                  placeholder='Buscar videos...'
                   iconButton={<FiSearch/>}
                 />
               </Col>

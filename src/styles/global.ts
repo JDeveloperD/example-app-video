@@ -69,7 +69,7 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    background: transparent;
+    background: ${({ theme }) => theme.mode === 'light' ? theme.colors.light : theme.colors.black};
     width: 0.5rem;
     height: 0.5rem;
   }
@@ -79,7 +79,6 @@ export default createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${GRAY_SCALE[200]};
-    border-radius: 0.5rem;
+    background: ${({ theme }) => theme.mode === 'light' ? darken(0.1, '#fff') : lighten(0.25, '#000')};
   }
 `

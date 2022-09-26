@@ -5,7 +5,8 @@ type InputFormProps = {
   iconButton: ReactNode,
   inputType?: string,
   onSubmit?: any,
-  placeholder?: string
+  placeholder?: string,
+  className?: string
 }
 
 const InputForm: FC<InputFormProps> = ({
@@ -13,10 +14,11 @@ const InputForm: FC<InputFormProps> = ({
   inputType = 'text',
   onSubmit,
   placeholder,
+  className,
   ...props
 }) => {
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} className={className}>
       <Input type={inputType} placeholder={placeholder} />
       <Button>
         {iconButton}
