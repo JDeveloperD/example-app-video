@@ -1,7 +1,7 @@
-import { ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
 import { Container as BsContainer } from 'react-bootstrap'
 
-type ContainerProps = {
+type ContainerProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode,
   fluid?: 'md' | 'lg' | 'xl' | 'xxl'
 }

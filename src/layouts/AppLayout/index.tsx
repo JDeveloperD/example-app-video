@@ -8,7 +8,7 @@ import { MEDIA_BREAKPOINTS } from '@styles/constants'
 
 const Main = styled.main`
   height: calc(100vh - 145px);
-  overflow-y: scroll;
+  overflow: auto;
 
   ${MEDIA_BREAKPOINTS.tablet} {
     height: calc(100vh - 90px);
